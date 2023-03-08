@@ -1,5 +1,5 @@
-// const num = prompt("Enter the number of cells", 10);
-const num = 20;
+let num = 16;
+num = prompt("Enter the number of cells", 16);
 const container = document.querySelector("#container");
 
 for (let i = 0; i < parseInt(num); i++) {
@@ -13,9 +13,17 @@ for (let i = 0; i < parseInt(num); i++) {
     }
 }
 
+
+let randColor = function () {
+    const r = Math.floor(Math.random() * 255)
+    const g = Math.floor(Math.random() * 255)
+    const b = Math.floor(Math.random() * 255)
+    return `rgb(${r},${g},${b})`;
+}
+
 let cells = document.querySelectorAll(".column");
 for (let cell of cells) {
     cell.addEventListener("mouseover", (f) => {
-        cell.classList.add("changed");
+        cell.style.backgroundColor = `${randColor()}`;
     })
 }
