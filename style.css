@@ -1,8 +1,18 @@
+div .container {
+    align-self: center;
+}
+
 div .row {
-    border: 1px solid black;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 div.column {
-    border: 1px dashed red;
-    display: inline;
+    border: 1px dashed gray;
+    width: 20px;
+    height: 20px;
+}
+
+div.column.changed {
+    background-color: gray;
 }
