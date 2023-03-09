@@ -12,8 +12,14 @@
 
 <body>
     <h1>Welcome to Etch A Sketch!!!</h1>
+    <label for="tiles">Select number of tiles: <span id="tilesNum">16 x 16</span></label>
+    <p>
+        <input type="range" id="tiles" min="4" max="50" value="16">
+        <input type="button" value="Change" id="change">
+    </p>
     <div id="container">
     </div>
+    <button id="reset">Reset</button>
 </body>
 
 </html>

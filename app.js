@@ -1,18 +1,33 @@
 let num = 16;
-num = prompt("Enter the number of cells", 16);
+
+const tiles = document.querySelector("#tiles");
+
+tiles.addEventListener("input", (e) => {
+    document.querySelector("#tilesNum").textContent = `${tiles.value} x ${tiles.value}`;
+})
+
+const change = document.querySelector("#change");
+change.addEventListener("click", (e) => {
+    num = parseInt(tiles.value);
+    // generateBoard(num);
+});
+
 const container = document.querySelector("#container");
 
-for (let i = 0; i < parseInt(num); i++) {
-    let row = document.createElement("div")
-    row.classList.add("row");
-    container.appendChild(row);
-    for (let j = 0; j < parseInt(num); j++) {
-        let col = document.createElement("div")
-        col.classList.add("column");
-        row.appendChild(col);
+function generateBoard(num) {
+    for (let i = 0; i < parseInt(num); i++) {
+        let row = document.createElement("div")
+        row.classList.add("row");
+        container.append(row);
+        for (let j = 0; j < parseInt(num); j++) {
+            let col = document.createElement("div")
+            col.classList.add("column");
+            row.append(col);
+        }
     }
 }
 
+generateBoard(num);
 
 let randColor = function () {
     const r = Math.floor(Math.random() * 255)
@@ -27,3 +42,10 @@ for (let cell of cells) {
         cell.style.backgroundColor = `${randColor()}`;
     })
 }
+
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", () => {
+    for (let cell of cells) {
+        cell.style.backgroundColor = 'white';
+    }
+})
