@@ -36,6 +36,8 @@ let randColor = function () {
     return `rgb(${r},${g},${b})`;
 }
 
+let color = randColor();
+
 let cells = document.querySelectorAll(".column");
 for (let cell of cells) {
     cell.addEventListener("mouseover", (f) => {
@@ -48,4 +50,9 @@ reset.addEventListener("click", () => {
     for (let cell of cells) {
         cell.style.backgroundColor = 'white';
     }
+})
+
+const dark = document.querySelector("#dark");
+dark.addEventListener("click", (e) => {
+    document.body.classList.toggle("dark");
 })
