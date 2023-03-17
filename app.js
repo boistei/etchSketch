@@ -27,6 +27,17 @@ function generateBoard(num) {
     }
 }
 
+function clearCanvas() {
+    let rows = document.querySelectorAll(".row");
+    let cols = document.querySelectorAll(".column");
+    for (let row of rows) {
+        for (let col of cols) {
+            col.remove();
+        }
+        row.remove();
+    }
+}
+
 generateBoard(num);
 
 let randColor = function () {
