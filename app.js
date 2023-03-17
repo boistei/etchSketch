@@ -6,12 +6,6 @@ tiles.addEventListener("input", (e) => {
     document.querySelector("#tilesNum").textContent = `${tiles.value} x ${tiles.value}`;
 })
 
-const change = document.querySelector("#change");
-change.addEventListener("click", (e) => {
-    num = parseInt(tiles.value);
-    // generateBoard(num);
-});
-
 const container = document.querySelector("#container");
 
 function generateBoard(num) {
@@ -39,6 +33,7 @@ function clearCanvas() {
 }
 
 generateBoard(num);
+colorChanger();
 
 let randColor = function () {
     const r = Math.floor(Math.random() * 255)
@@ -47,16 +42,31 @@ let randColor = function () {
     return `rgb(${r},${g},${b})`;
 }
 
-let cells = document.querySelectorAll(".column");
-for (let cell of cells) {
-    cell.addEventListener("mouseover", (f) => {
-        cell.style.backgroundColor = `${randColor()}`;
-    })
+function colorChanger() {
+    let cells = document.querySelectorAll(".column");
+    for (let cell of cells) {
+        cell.addEventListener("mouseover", (f) => {
+            cell.style.backgroundColor = `${randColor()}`;
+        })
+    }
+}
+
+function resetBoard() {
+    let cells = document.querySelectorAll(".column");
+    for (let cell of cells) {
+        cell.style.backgroundColor = 'white';
+    }
 }
 
 const reset = document.querySelector("#reset");
 reset.addEventListener("click", () => {
-    for (let cell of cells) {
-        cell.style.backgroundColor = 'white';
-    }
-})
+    resetBoard();
+});
+
+const change = document.querySelector("#change");
+change.addEventListener("click", (e) => {
+    num = parseInt(tiles.value);
+    clearCanvas();
+    generateBoard(num);
+    colorChanger();
+});
