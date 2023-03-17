@@ -42,6 +42,7 @@ let randColor = function () {
     return `rgb(${r},${g},${b})`;
 }
 
+
 function colorChanger() {
     let cells = document.querySelectorAll(".column");
     for (let cell of cells) {
@@ -70,3 +71,8 @@ change.addEventListener("click", (e) => {
     generateBoard(num);
     colorChanger();
 });
+
+const dark = document.querySelector("#dark");
+dark.addEventListener("click", (e) => {
+    document.body.classList.toggle("dark");
+})
