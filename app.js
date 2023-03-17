@@ -1,6 +1,7 @@
 let num = 16;
 
 const tiles = document.querySelector("#tiles");
+let darkMode = false;
 
 tiles.addEventListener("input", (e) => {
     document.querySelector("#tilesNum").textContent = `${tiles.value} x ${tiles.value}`;
@@ -55,7 +56,12 @@ function colorChanger() {
 function resetBoard() {
     let cells = document.querySelectorAll(".column");
     for (let cell of cells) {
-        cell.style.backgroundColor = 'white';
+        if (dark.checked === true) {
+            cell.style.backgroundColor = `rgb(0, 5, 82)`;
+        }
+        else {
+            cell.style.backgroundColor = 'white';
+        }
     }
 }
 
@@ -74,5 +80,6 @@ change.addEventListener("click", (e) => {
 
 const dark = document.querySelector("#dark");
 dark.addEventListener("click", (e) => {
+    resetBoard();
     document.body.classList.toggle("dark");
 })

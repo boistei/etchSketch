@@ -9,8 +9,8 @@ div .row {
 
 div.column {
     border: 1px dashed gray;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 div.column .dark {
